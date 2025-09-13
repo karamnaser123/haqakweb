@@ -1,0 +1,17 @@
+{
+    "previous": "« Previous",
+    "next": "Next »",
+    "first": "First",
+    "last": "Last",
+    "showing": "Showing",
+    "to": "to",
+    "of": "of",
+    "results": "results",
+    "page": "Page",
+    "current_page": "You are on page :page",
+    "load_more": "Load More",
+    "no_more_results": "No more results to display",
+    "items_per_page": "Items per page",
+    "total_pages": "Total pages",
+    "total_results": "Total results"
+}

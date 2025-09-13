@@ -1,0 +1,17 @@
+{
+    "previous": "« السابق",
+    "next": "التالي »",
+    "first": "الأول",
+    "last": "الأخير",
+    "showing": "عرض",
+    "to": "إلى",
+    "of": "من",
+    "results": "نتائج",
+    "page": "صفحة",
+    "current_page": "أنت في الصفحة :page",
+    "load_more": "تحميل المزيد",
+    "no_more_results": "لا توجد نتائج إضافية للعرض",
+    "items_per_page": "عناصر لكل صفحة",
+    "total_pages": "إجمالي الصفحات",
+    "total_results": "إجمالي النتائج"
+}

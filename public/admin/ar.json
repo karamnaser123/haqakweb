@@ -1,0 +1,145 @@
+{
+    "buttons": {
+        "copy": "نسخ",
+        "copyTitle": "تم النسخ",
+        "copySuccess": {
+            "_": "تم نسخ %d سجلات",
+            "1": "تم نسخ سجل واحد"
+        },
+        "excel": "تصدير إلى Excel",
+        "csv": "تصدير إلى CSV",
+        "pdf": "تصدير إلى PDF",
+        "print": "طباعة",
+        "colvis": "إظهار/إخفاء الأعمدة",
+        "pageLength": {
+            "_": "عرض %d سجلات",
+            "-1": "عرض كل السجلات"
+        }
+    },
+    "processing": "جاري التحميل...",
+    "search": "بحث:",
+    "lengthMenu": "عرض _MENU_ سجلات لكل صفحة",
+    "info": "عرض _START_ إلى _END_ من إجمالي _TOTAL_ سجل",
+    "infoEmpty": "لا توجد بيانات متاحة",
+    "infoFiltered": "(تمت تصفيتها من إجمالي _MAX_ سجل)",
+    "infoPostFix": "",
+    "loadingRecords": "جاري التحميل...",
+    "zeroRecords": "لا توجد سجلات مطابقة",
+    "emptyTable": "لا توجد بيانات متاحة في الجدول",
+    "paginate": {
+        "first": "الأولى",
+        "previous": "السابق",
+        "next": "التالي",
+        "last": "الأخيرة"
+    },
+    "aria": {
+        "sortAscending": ": تفعيل لفرز العمود تصاعديًا",
+        "sortDescending": ": تفعيل لفرز العمود تنازليًا"
+    },
+    "select": {
+        "rows": {
+            "_": "تم تحديد %d صفوف",
+            "1": "تم تحديد صف واحد"
+        },
+        "1": "صف واحد محدد",
+        "_": "%d صفوف محددة"
+    },
+    "searchBuilder": {
+        "add": "إضافة شرط",
+        "clearAll": "إزالة الكل",
+        "condition": "الشرط",
+        "data": "البيانات",
+        "deleteTitle": "حذف فلاتر",
+        "leftTitle": "خارج المعايير",
+        "logicAnd": "و",
+        "logicOr": "أو",
+        "rightTitle": "داخل المعايير",
+        "title": {
+            "0": "منشئ البحث",
+            "_": "منشئ البحث (%d)"
+        },
+        "value": "القيمة",
+        "conditions": {
+            "date": {
+                "after": "بعد",
+                "before": "قبل",
+                "between": "بين",
+                "empty": "فارغ",
+                "equals": "تساوي",
+                "not": "ليس",
+                "notBetween": "ليس بين",
+                "notEmpty": "غير فارغ"
+            },
+            "number": {
+                "between": "بين",
+                "empty": "فارغ",
+                "equals": "تساوي",
+                "gt": "أكبر من",
+                "gte": "أكبر أو يساوي",
+                "lt": "أقل من",
+                "lte": "أقل أو يساوي",
+                "not": "ليس",
+                "notBetween": "ليس بين",
+                "notEmpty": "غير فارغ"
+            },
+            "string": {
+                "contains": "يحتوي",
+                "empty": "فارغ",
+                "endsWith": "ينتهي بـ",
+                "equals": "تساوي",
+                "not": "ليس",
+                "notEmpty": "غير فارغ",
+                "startsWith": "يبدأ بـ"
+            }
+        }
+    },
+    "searchPanes": {
+        "clearMessage": "إزالة الكل",
+        "collapse": {
+            "0": "بحث",
+            "_": "بحث (%d)"
+        },
+        "count": "{total}",
+        "countFiltered": "{shown} / {total}",
+        "emptyPanes": "لا توجد لوحات بحث",
+        "loadMessage": "جاري التحميل...",
+        "title": "الفلاتر النشطة - %d"
+    },
+    "datetime": {
+        "previous": "السابق",
+        "next": "التالي",
+        "hours": "الساعة",
+        "minutes": "الدقيقة",
+        "seconds": "الثانية",
+        "amPm": [
+            "صباحًا",
+            "مساءً"
+        ],
+        "unknown": "-"
+    },
+    "editor": {
+        "close": "إغلاق",
+        "create": {
+            "button": "إضافة",
+            "title": "إضافة جديد",
+            "submit": "حفظ"
+        },
+        "edit": {
+            "button": "تعديل",
+            "title": "تعديل السجل",
+            "submit": "تحديث"
+        },
+        "remove": {
+            "button": "حذف",
+            "title": "حذف",
+            "submit": "حذف",
+            "confirm": {
+                "_": "هل أنت متأكد من حذف %d سجلات؟",
+                "1": "هل أنت متأكد من حذف سجل واحد؟"
+            }
+        },
+        "error": {
+            "system": "حدث خطأ بالنظام. يرجى المحاولة لاحقًا."
+        }
+    }
+}
