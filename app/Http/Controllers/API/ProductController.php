@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Models\User;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -11,7 +12,19 @@ class ProductController extends Controller
 {
     public function categories()
     {
-        $categories = Category::paginate(10);
+        $categories = Category::whereNull('parent_id')
+            ->withCount(['children'])
+            ->paginate(10);
+
+        return response()->json([
+            'categories' => $categories,
+        ]);
+    }
+    public function subcategories($id)
+    {
+        $categories = Category::where('parent_id', $id)
+            ->withCount('products')
+            ->paginate(10);
         return response()->json([
             'categories' => $categories,
         ]);
@@ -39,6 +52,24 @@ class ProductController extends Controller
         }
         return response()->json([
             'product' => $product,
+        ]);
+    }
+
+    public function stores()
+    {
+        $stores = User::whereHasRole('store')
+        ->with(['store'])
+        ->paginate(10);
+        return response()->json([
+            'stores' => $stores,
+        ]);
+    }
+
+    public function productsbystore($id)
+    {
+        $products = Product::where('store_id', $id)->with('productImages', 'store')->get();
+        return response()->json([
+            'products' => $products,
         ]);
     }
 }

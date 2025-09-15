@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\DiscountController;
 
 
 
@@ -71,6 +72,14 @@ Route::middleware('auth')->group(function () {
         Route::post('/update/{id?}', [ProductController::class, 'update'])->middleware('permission:product-update')->name('update');
         Route::delete('/delete/{id?}', [ProductController::class, 'destroy'])->middleware('permission:product-delete')->name('destroy');
         Route::delete('/image/{id?}', [ProductController::class, 'deleteImage'])->middleware('permission:product-update')->name('deleteImage');
+    });
+
+    Route::prefix('discounts')->name('discounts.')->middleware('permission:view-discounts')->group(function () {
+        Route::get('/', [DiscountController::class, 'index'])->name('index');
+        Route::post('/add', [DiscountController::class, 'store'])->middleware('permission:discount-add')->name('store');
+        Route::get('/edit/{id?}', [DiscountController::class, 'edit'])->middleware('permission:discount-update')->name('edit');
+        Route::post('/update/{id?}', [DiscountController::class, 'update'])->middleware('permission:discount-update')->name('update');
+        Route::delete('/delete/{id?}', [DiscountController::class, 'destroy'])->middleware('permission:discount-delete')->name('destroy');
     });
 
 });

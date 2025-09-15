@@ -17,9 +17,13 @@ return new class extends Migration
             $table->foreignId('store_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('discount_id')->nullable()->constrained('discounts')->onDelete('cascade');
             $table->integer('quantity')->default(0);
+            $table->decimal('subtotal', 10, 2)->default(0);
+            $table->decimal('discount_amount', 10, 2)->nullable();
             $table->decimal('total_price', 10, 2)->default(0);
             $table->decimal('cashback_amount', 10, 2)->default(0);
             $table->decimal('delivery_fee', 10, 2)->default(0);
+            $table->string('phone')->nullable();
+            $table->string('address')->nullable();
             $table->enum('payment_method', ['cash', 'card', 'bank_transfer', 'other', 'wallet'])->default('cash');
             $table->enum('status', ['pending', 'processing', 'in_delivery', 'delivered', 'cancelled'])->default('pending');
             $table->timestamps();

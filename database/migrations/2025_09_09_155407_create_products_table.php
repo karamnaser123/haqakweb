@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name_en');
             $table->string('name_ar');
             $table->decimal('price', 10, 2);
-            $table->decimal('discount', 10, 2)->default(0);
+            $table->decimal('discount', 10, 2)->nullable()->default(0);
             $table->integer('stock')->default(0);
             $table->string('description_en')->nullable();
             $table->string('description_ar')->nullable();

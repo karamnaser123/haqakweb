@@ -18,6 +18,10 @@ class DatabaseSeeder extends Seeder
             PermissionSeeder::class,
             RoleSeeder::class,
             UserSeeder::class,
+            GovernorateSeeder::class,
+            CitySeeder::class,
+            CategorySeeder::class,
+            ProductFactorySeeder::class,
         ]);
     }
 }

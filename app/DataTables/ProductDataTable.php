@@ -59,13 +59,15 @@ class ProductDataTable extends DataTable
             })
             ->addColumn('price', function ($data) {
                 $price = number_format($data->price, 2);
-                $discount = $data->discount > 0 ? number_format($data->discount, 2) : 0;
+                $discountPercentage = $data->discount > 0 ? $data->discount : 0;
 
-                if ($discount > 0) {
-                    $finalPrice = $data->price - $discount;
+                if ($discountPercentage > 0) {
+                    $discountAmount = ($data->price * $discountPercentage) / 100;
+                    $finalPrice = $data->price - $discountAmount;
                     return '<div>
                         <span class="text-decoration-line-through text-muted">$' . $price . '</span><br>
-                        <span class="text-success fw-bold">$' . number_format($finalPrice, 2) . '</span>
+                        <span class="text-success fw-bold">$' . number_format($finalPrice, 2) . '</span><br>
+                        <small class="text-danger">-' . number_format($discountPercentage, 1) . '%</small>
                     </div>';
                 }
 

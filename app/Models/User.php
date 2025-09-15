@@ -51,7 +51,7 @@ class User extends Authenticatable
 
     public function store()
     {
-        return $this->hasOne(Store::class);
+        return $this->hasOne(Store::class, 'store_id');
     }
 
     public function orders()

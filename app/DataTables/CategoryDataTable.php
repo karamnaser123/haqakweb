@@ -64,6 +64,23 @@ class CategoryDataTable extends DataTable
                 $arrow = $level > 0 ? '└─ ' : '';
                 return $indent . $arrow . $data->name_en;
             })
+            ->filterColumn('parent', function($query, $keyword) {
+                $query->where(function($q) use ($keyword) {
+                    $q->where('parent_categories.name_en', 'like', "%{$keyword}%")
+                      ->orWhere('parent_categories.name_ar', 'like', "%{$keyword}%");
+                });
+            })
+            ->filter(function ($query) {
+                if (request()->has('search') && request()->get('search')['value']) {
+                    $searchValue = request()->get('search')['value'];
+                    $query->where(function($q) use ($searchValue) {
+                        $q->where('categories.name_en', 'like', "%{$searchValue}%")
+                          ->orWhere('categories.name_ar', 'like', "%{$searchValue}%")
+                          ->orWhere('parent_categories.name_en', 'like', "%{$searchValue}%")
+                          ->orWhere('parent_categories.name_ar', 'like', "%{$searchValue}%");
+                    });
+                }
+            })
             ->rawColumns(['action', 'image', 'parent', 'level'])
             ->setRowId('id');
     }
@@ -76,9 +93,14 @@ class CategoryDataTable extends DataTable
     public function query(Category $model): QueryBuilder
     {
         return $model->newQuery()
-            ->with('parent')
-            ->orderBy('parent_id', 'asc')
-            ->orderBy('name_en', 'asc');
+            ->leftJoin('categories as parent_categories', 'categories.parent_id', '=', 'parent_categories.id')
+            ->select([
+                'categories.*',
+                'parent_categories.name_en as parent_name_en',
+                'parent_categories.name_ar as parent_name_ar'
+            ])
+            ->orderBy('categories.parent_id', 'asc')
+            ->orderBy('categories.name_en', 'asc');
     }
 
     /**
@@ -112,7 +134,7 @@ class CategoryDataTable extends DataTable
         return [
             Column::make('id')->title(__('ID'))->addClass('text-center'),
             Column::make('image')->title(__('Image'))->addClass('text-center'),
-            Column::make('level')->title(__('Category Name'))->addClass('text-center'),
+            Column::make('name_en')->title(__('Category Name'))->addClass('text-center'),
             Column::make('name_ar')->title(__('Name (AR)'))->addClass('text-center'),
             Column::make('parent')->title(__('Parent Category'))->addClass('text-center'),
             Column::computed('action')

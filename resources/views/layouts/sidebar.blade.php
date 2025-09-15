@@ -40,14 +40,14 @@
             </div>
         </div>
         @endif
-        @if(auth()->user()->hasPermission('view-categories') || auth()->user()->hasPermission('view-products') || Auth::user()->hasRole('admin'))
+        @if(auth()->user()->hasPermission('view-categories') || auth()->user()->hasPermission('view-products') || auth()->user()->hasPermission('view-discounts') || Auth::user()->hasRole('admin'))
         <div class="nav-item">
-            <a class="nav-link dropdown-toggle {{ request()->routeIs('categories.*') || request()->routeIs('products.*') ? 'active' : '' }}"
-               href="#" id="usersDropdown" role="button" data-bs-toggle="collapse" data-bs-target="#ProductsCollapse" aria-expanded="{{ request()->routeIs('categories.*') || request()->routeIs('products.*') ? 'true' : 'false' }}" aria-controls="usersCollapse">
+            <a class="nav-link dropdown-toggle {{ request()->routeIs('categories.*') || request()->routeIs('products.*') || request()->routeIs('discounts.*') ? 'active' : '' }}"
+               href="#" id="usersDropdown" role="button" data-bs-toggle="collapse" data-bs-target="#ProductsCollapse" aria-expanded="{{ request()->routeIs('categories.*') || request()->routeIs('products.*') || request()->routeIs('discounts.*') ? 'true' : 'false' }}" aria-controls="usersCollapse">
                 <i class="bi bi-tags me-2"></i>
                 {{ __('Categories and Products') }}
             </a>
-            <div class="collapse {{ request()->routeIs('categories.*') || request()->routeIs('products.*') ? 'show' : '' }}" id="ProductsCollapse">
+            <div class="collapse {{ request()->routeIs('categories.*') || request()->routeIs('products.*') || request()->routeIs('discounts.*') ? 'show' : '' }}" id="ProductsCollapse">
                 <div class="nav flex-column ms-3">
                     @if(auth()->user()->hasPermission('view-categories') || Auth::user()->hasRole('admin'))
                     <a class="nav-link {{ request()->routeIs('categories.index') ? 'active' : '' }}"
@@ -59,8 +59,15 @@
                     @if(auth()->user()->hasPermission('view-products') || Auth::user()->hasRole('admin'))
                     <a class="nav-link {{ request()->routeIs('products.index') ? 'active' : '' }}"
                        href="{{ route('products.index') }}">
-                        <i class="bi bi-shield-check me-2"></i>
+                        <i class="bi bi-box me-2"></i>
                         {{ __('products') }}
+                    </a>
+                    @endif
+                    @if(auth()->user()->hasPermission('view-discounts') || Auth::user()->hasRole('admin'))
+                    <a class="nav-link {{ request()->routeIs('discounts.index') ? 'active' : '' }}"
+                       href="{{ route('discounts.index') }}">
+                        <i class="bi bi-percent me-2"></i>
+                        {{ __('discounts') }}
                     </a>
                     @endif
                 </div>
